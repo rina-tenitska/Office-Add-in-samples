@@ -28,16 +28,24 @@
     function sayHello() {
         Office.context.mailbox.item.to.setAsync(
             "test@test.com",
+            function(asyncResult) {
+                console.log(asyncResult.status)
+            },
         );
         Office.context.item.subject.setAsync(
-            "test letter"
-        )
+            "test letter",
+            function(asyncResult) {
+                console.log(asyncResult.status)
+            },
+        );
         Office.context.mailbox.item.body.setAsync(
             "Hello world!",
             {
                 coercionType: "html", // Write text as HTML
             },
-
+            function(asyncResult) {
+                console.log(asyncResult.status)
+            },
             // Callback method to check that setAsync succeeded
             function (asyncResult) {
                 if (asyncResult.status ==
