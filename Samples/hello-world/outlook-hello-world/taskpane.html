@@ -18,7 +18,7 @@
 
     Office.onReady((info) => {
         if (info.host === Office.HostType.Outlook) {
-            document.getElementById("helloButton").onclick = sayHello;
+            document.querySelector("[testID=helloButton]").onclick = sayHello;
         }
     });
 
@@ -26,12 +26,12 @@
      * Writes 'Hello world!' to a new message body.
      */
     function sayHello() {
-        Office.context.mailbox.item.recipients.setAsync(
-            "test@letter.com",
-        );
-        Office.context.mailbox.item.subject.setAsync(
-            "test letter",
-        );
+        // Office.context.mailbox.item.recipients.setAsync(
+        //     "test@letter.com",
+        // );
+        // Office.context.mailbox.item.subject.setAsync(
+        //     "test letter",
+        // );
         Office.context.mailbox.item.body.setAsync(
             "Hello world!",
             {
